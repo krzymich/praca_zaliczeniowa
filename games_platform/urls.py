@@ -15,15 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from quiz.views import QuizView, csrf, ping
-from quiz.views import MemoryView, SignInView, SignUpView
+from quiz.views import QuizView, sign_out, ExtraFeautureView
+from quiz.views import MemoryView, SignInView, SignUpView, FlagCourseView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('quiz/', QuizView.as_view(), name='quiz'),
     path('memory/', MemoryView.as_view(), name='memory'),
-    path('csrf/', csrf),
-    path('ping/', ping),
+    path('course/', FlagCourseView.as_view(), name='course'),
+    path('signout/', sign_out),
     path('signin/', SignInView.as_view(), name='signin'),
     path('signup/', SignUpView.as_view(), name='signup'),
+    path('extra_feature/', ExtraFeautureView.as_view(), name='extra_feature'),
 ]
